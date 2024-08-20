@@ -4,32 +4,45 @@
 
 @layer base {
   :root {
-    --primary: hsl(218, 33%, 9%);
-    /* Cyber Black */
-    --secondary: hsl(221, 29%, 18%);
-    /* Light Cyber Black */
-    --tertiary: hsl(218, 34%, 28%);
-    /* Lighter Cyber Black */
+    --darkest: #171923;
+    --darker: #2D3748;
+    --dark: #4A5568;
 
-    --primary-foreground: hsl(210, 100%, 97%);
-    /* Glitch White */
-    --secondary-foreground: hsl(210, 55%, 91%);
-    /* Light Glitch */
-    --tertiary-foreground: hsl(213, 50%, 87%);
-    /* Lighter Glitch */
+    --light: #A0AEC0;
+    --lighter: #E2E8F0;
+    --lightest: #F7FAFC;
 
-    --accent: hsl(168, 100%, 63%);
-    /* Green */
+    --white: #f0f8ff;
+    --accent: #63b3ed;
+
+    --accent-transparent: #63b3ed2d;
+    --blurred: #2d374859;
+    --blob: #63b3ed9c;
+
+    /* --darkest: #020617;
+    --darker: #0f172a;
+    --dark: #1e293b;
+
+    --light: #8892b0;
+    --lighter: #a8b2d1;
+    --lightest: #ccd6f6;
+
+    --white: #e6f1ff;
+    --accent: #42ffd9cc;
+
+    --accent-transparent: #42ffd918;
+    --blurred: #e6f1ff09;
+    --blob: #0098db; */
   }
 }
 
 @layer base {
   * {
-    @apply border-tertiary scroll-smooth;
+    @apply border-dark scroll-smooth transition-all;
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-light;
   }
 }
 
@@ -46,41 +59,41 @@ h3 {
 }
 
 h4 {
-  @apply scroll-m-20 text-xl font-semibold tracking-tight;
+  @apply mt-2 scroll-m-20 text-xl font-semibold tracking-tight;
 }
 
 p {
-  @apply leading-7 [&:not(:first-child)]:mt-2;
+  @apply [&:not(:first-child)]:mt-2;
 }
 
 a {
-  @apply underline underline-offset-4 hover:text-primary;
+  @apply no-underline text-lightest hover:text-accent font-semibold text-lg;
 }
 
 ::selection {
-  @apply bg-accent text-background;
+  @apply bg-accent text-dark;
 }
 
 /* ===== scrollbar ===== */
 
 /* width */
 ::-webkit-scrollbar {
-  @apply w-3 h-3 rounded-[radius] transition-colors;
+  @apply w-2 h-2 transition-colors;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  @apply bg-primary-foreground;
+  @apply bg-darker;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  @apply bg-secondary border-secondary;
+  @apply bg-light border-darker;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary;
+  @apply bg-accent;
 }
 
 /* ===== pattern ===== */

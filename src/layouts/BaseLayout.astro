@@ -18,9 +18,40 @@ const { title, description, ogImage } = Astro.props as BaseLayoutProps;
       ogImage={ogImage}
     />
   </head>
+
   <body>
-    <main>
-      <slot />
-    </main>
+    <div id="blob" class="hidden lg:block"></div>
+    <div id="blur" class="hidden lg:block"></div>
+    <div class="flex justify-center">
+      <main class="flex flex-col max-w-6xl min-h-dvh z-40">
+        <slot />
+      </main>
+    </div>
   </body>
 </html>
+
+<style>
+  #blob {
+    @apply h-[34vmax] aspect-square fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-blob opacity-20;
+  }
+
+  #blur {
+    @apply h-full w-full fixed backdrop-blur-[12vmax] z-[2];
+  }
+</style>
+
+<script is:inline>
+  const blob = document.getElementById("blob");
+
+  window.onpointermove = (event) => {
+    const { clientX, clientY } = event;
+
+    blob.animate(
+      {
+        left: `${clientX}px`,
+        top: `${clientY}px`,
+      },
+      { duration: 0, fill: "forwards" },
+    );
+  };
+</script>
