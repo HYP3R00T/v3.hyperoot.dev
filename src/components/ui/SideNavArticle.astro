@@ -5,11 +5,11 @@ const { headings } = Astro.props;
 ---
 
 <div class="text-white hidden lg:flex flex-col gap-4 w-full flex-1 h-1/5">
-  <a class="category-item py-4" href="/article">
+  <a class="category-item pt-8 pb-2" href="/article">
     <div class="category-line w-10 bg-light"></div>
     <div class="category-link text-light">Articles</div>
   </a>
-  <div class="overflow-y-scroll scrollbar">
+  <div class="overflow-y-scroll scrollbar mb-2">
     <TableofContents {headings} />
   </div>
 </div>

@@ -26,5 +26,22 @@ export default {
       mono: ["'JetBrains Mono'", ...defaultTheme.fontFamily.mono],
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addComponents }) {
+      addComponents({
+        code: {
+          counterReset: "step",
+        },
+        "code > .line:not(:last-child)::before": {
+          content: "counter(step)",
+          counterIncrement: "step",
+          width: "1rem",
+          marginRight: "1.5rem",
+          display: "inline-block",
+          textAlign: "right",
+          color: "rgba(115, 138, 148, .4)",
+        },
+      });
+    },
+  ],
 };

@@ -7,18 +7,22 @@ const toc: HeadingHierarchy[] = createHeadingHierarchy(headings ?? []);
 const hasToC = toc.length > 1;
 ---
 
-{
-  hasToC && (
-    <div class="text-white py-4 hidden lg:flex flex-col gap-4">
-      {toc.map((heading) => (
-        <a href={`#${heading.slug}`} class="toc-item">
-          <div class="toc-line w-5 bg-light" />
-          <div class="toc-link text-light">{heading.text}</div>
-        </a>
-      ))}
-    </div>
-  )
-}
+<div class="toc-container pr-2 overflow-x-hidden">
+  {
+    hasToC && (
+      <div class="text-white py-4 hidden lg:flex flex-col gap-4">
+        {toc.map((heading) => (
+          <a href={`#${heading.slug}`} class="toc-item">
+            <div class="toc-line w-5 bg-light" />
+            <div class="toc-link text-light whitespace-nowrap ">
+              {heading.text}
+            </div>
+          </a>
+        ))}
+      </div>
+    )
+  }
+</div>
 
 <style>
   .toc-item {
@@ -46,13 +50,18 @@ const hasToC = toc.length > 1;
     const sections = proseContainer.querySelectorAll("h2, h3");
     const tocLinks = document.querySelectorAll(".toc-link");
     const tocLines = document.querySelectorAll(".toc-line");
+    const tocContainer = document.querySelector(
+      ".toc-container",
+    ) as HTMLElement | null;
+
+    if (!tocContainer) return;
 
     document.addEventListener("scroll", () => {
       let index = sections.length;
 
       while (
         --index &&
-        window.scrollY + 100 < (sections[index] as HTMLElement).offsetTop
+        window.scrollY + 300 < (sections[index] as HTMLElement).offsetTop
       ) {}
 
       tocLinks.forEach((link) => {
@@ -68,6 +77,19 @@ const hasToC = toc.length > 1;
       });
       tocLines[index].classList.add("w-10", "bg-lightest");
       tocLines[index].classList.remove("w-5", "bg-light");
+
+      const activeTocLink = tocLinks[index] as HTMLElement;
+      const tocContainerHeight = tocContainer.offsetHeight;
+      const linkTopPosition = activeTocLink.offsetTop;
+
+      if (
+        linkTopPosition + activeTocLink.offsetHeight + 100 >
+        tocContainerHeight + tocContainer.scrollTop
+      ) {
+        activeTocLink.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      } else if (linkTopPosition < tocContainer.scrollTop) {
+        activeTocLink.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
     });
   });
 </script>

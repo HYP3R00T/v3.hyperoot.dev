@@ -4,6 +4,11 @@ import { getCollection } from "astro:content";
 import Button from "../base/Button.astro";
 
 const posts: ArticleProps[] = await getCollection("blog");
+posts.sort((a, b) => {
+  const aDate = new Date(a.data.modDatetime ?? a.data.pubDatetime).valueOf();
+  const bDate = new Date(b.data.modDatetime ?? b.data.pubDatetime).valueOf();
+  return bDate - aDate;
+});
 ---
 
 <section>
@@ -20,7 +25,7 @@ const posts: ArticleProps[] = await getCollection("blog");
           {post.data.description}
         </p>
         <div class="flex gap-2 py-2 font-mono flex-wrap">
-          {post.data.tags?.map((tag) => {
+          {post.data.tags?.map((tag: unknown) => {
             return <Button>{tag}</Button>;
           })}
         </div>

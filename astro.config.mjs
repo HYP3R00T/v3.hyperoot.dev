@@ -1,8 +1,6 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import rehypeExternalLinks from "rehype-external-links";
-
-import customTheme from "@/assets/material-theme-ocean.json";
 import icon from "astro-icon";
 
 // https://astro.build/config

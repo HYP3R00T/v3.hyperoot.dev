@@ -20,7 +20,7 @@ Let's start with a straightforward task: calculating the average of a list of nu
 def greet(name):
     """Greet the person with their name."""
     greeting = f"Hello, {name}!"
-    return greeting
+    return greeting 
 
 # Call the greet function and print the result
 print(greet("World"))
