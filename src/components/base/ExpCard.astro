@@ -1,0 +1,63 @@
+---
+import type { ExpCardProps } from "@/lib/types";
+import Button from "@/components/base/Button.astro";
+
+const { data } = Astro.props as ExpCardProps;
+---
+
+<a href={data.url} target="_blank">
+  <div
+    class="card p-8 rounded-lg hidden lg:flex lg:flex-row flex-1 gap-4 text-light hover:shadow hover:bg-blurred"
+  >
+    <div class="card-duration lg:w-1/3 text-sm">{data.duration}</div>
+    <div class="lg:w-2/3">
+      <h4
+        class="card-title m-0 p-0 -mt-1 font-normal tracking-normal text-lightest"
+      >
+        {data.job_title}
+      </h4>
+      <p class="card-description text-pretty text-base font-normal">
+        {data.description}
+      </p>
+      <div class="flex gap-2 py-2 font-mono flex-wrap">
+        {
+          data.tags?.map((tag) => {
+            return <Button>{tag}</Button>;
+          })
+        }
+      </div>
+    </div>
+  </div>
+</a>
+
+<div
+  class="card p-4 rounded-lg flex flex-col flex-1 gap-4 text-light bg-blurred lg:hidden"
+>
+  <div class="card-duration lg:w-1/3 text-sm">{data.duration}</div>
+  <div class="lg:w-2/3">
+    <h4
+      class="card-title m-0 p-0 -mt-1 font-normal tracking-normal text-lightest"
+    >
+      {data.job_title}
+    </h4>
+    <p class="card-description text-pretty text-base font-normal">
+      {data.description}
+    </p>
+    <div class="flex gap-2 py-2 font-mono flex-wrap">
+      {
+        data.tags?.map((tag) => {
+          return <Button>{tag}</Button>;
+        })
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  :hover.card .card-title {
+    @apply text-accent;
+  }
+  :hover.card .card-description {
+    @apply text-lighter;
+  }
+</style>
