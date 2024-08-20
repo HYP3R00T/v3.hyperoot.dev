@@ -89,9 +89,9 @@ export const Socials: SocialObjects[] = [
   },
   {
     name: "linkedin",
-    href: "https://github.com/HYP3R00T/",
+    href: "https://www.linkedin.com/in/rajesh-kumar-das/",
     linkTitle: `${SITE.title} on LinkedIn`,
-    active: false,
+    active: true,
   },
   {
     name: "mail",
@@ -113,9 +113,9 @@ export const Socials: SocialObjects[] = [
   },
   {
     name: "youtube",
-    href: "https://github.com/HYP3R00T/",
+    href: "https://www.youtube.com/@hyp3r00t",
     linkTitle: `${SITE.title} on YouTube`,
-    active: false,
+    active: true,
   },
   {
     name: "discord",
