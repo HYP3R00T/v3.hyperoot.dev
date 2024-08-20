@@ -51,7 +51,7 @@ h1 {
 }
 
 h2 {
-  @apply mt-5 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-wide transition-colors first:mt-0;
+  @apply mt-5 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-wide first:mt-0;
 }
 
 h3 {
@@ -63,7 +63,7 @@ h4 {
 }
 
 p {
-  @apply [&:not(:first-child)]:mt-2;
+  @apply [&:not(:first-child)]:mt-2 transition-none;
 }
 
 a {

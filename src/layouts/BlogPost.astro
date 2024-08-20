@@ -1,27 +1,25 @@
 ---
-import BaseLayout from "@/layouts/BaseLayout.astro";
-
+import SideNavArticle from "@/components/ui/SideNavArticle.astro";
 import Intro from "@/components/ui/Intro.astro";
-import SideNavMain from "@/components/ui/SideNavMain.astro";
 import Social from "@/components/ui/Social.astro";
-import About from "@/components/ui/About.astro";
-import Experience from "@/components/ui/Experience.astro";
-import Projects from "@/components/ui/Projects.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { ArticleData } from "@/lib/types";
+
+const { title, description } = Astro.props as ArticleData;
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={description}>
   <div class="flex flex-col lg:flex-row flex-1">
     <div
       class="py-6 lg:py-20 px-4 lg:px-12 lg:w-2/5 lg:h-screen lg:sticky lg:top-0 flex flex-col lg:justify-between items-center lg:items-start"
     >
       <Intro />
-      <SideNavMain />
+      <SideNavArticle />
       <Social />
     </div>
     <div class="lg:pt-[5.25rem] pb-6 lg:pb-20 px-4 lg:px-12 lg:w-3/5">
-      <About />
-      <Experience />
-      <Projects />
+      <h2>{title}</h2>
+      <slot />
     </div>
   </div>
 </BaseLayout>

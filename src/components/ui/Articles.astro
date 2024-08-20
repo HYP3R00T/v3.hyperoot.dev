@@ -1,0 +1,39 @@
+---
+import type { ArticleProps } from "@/lib/types";
+import { getCollection } from "astro:content";
+import Button from "../base/Button.astro";
+
+const posts: ArticleProps[] = await getCollection("blog");
+---
+
+<section>
+  {
+    posts.map((post) => (
+      <a
+        href={`/article/${post.slug}/`}
+        class="article p-4 rounded-lg hidden lg:flex lg:flex-col flex-1 gap-4 text-light hover:shadow hover:bg-blurred"
+      >
+        <h4 class="article-title m-0 p-0 -mt-1 font-normal tracking-normal text-lightest">
+          {post.data.title}
+        </h4>
+        <p class="article-description text-pretty text-base font-normal">
+          {post.data.description}
+        </p>
+        <div class="flex gap-2 py-2 font-mono flex-wrap">
+          {post.data.tags?.map((tag) => {
+            return <Button>{tag}</Button>;
+          })}
+        </div>
+      </a>
+    ))
+  }
+</section>
+
+<style>
+  :hover.article .article-title {
+    @apply text-accent;
+  }
+  :hover.article .article-description {
+    @apply text-lighter;
+  }
+</style>

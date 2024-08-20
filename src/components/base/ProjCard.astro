@@ -28,6 +28,29 @@ const { data } = Astro.props as ProjCardProps;
   </div>
 </a>
 
+<a
+  href={data.url}
+  target="_blank"
+  class="project lg:hidden p-4 rounded-lg flex flex-col flex-1 gap-4
+  text-light hover:shadow hover:bg-blurred"
+>
+  <h4
+    class="project-title m-0 p-0 -mt-1 font-normal tracking-normal text-lightest"
+  >
+    {data.name}
+  </h4>
+  <p class="project-description text-pretty text-base font-normal">
+    {data.description}
+  </p>
+  <div class="flex gap-2 py-2 font-mono flex-wrap">
+    {
+      data.tags?.map((tag) => {
+        return <Button>{tag}</Button>;
+      })
+    }
+  </div>
+</a>
+
 <style>
   :hover.project .project-title {
     @apply text-accent;

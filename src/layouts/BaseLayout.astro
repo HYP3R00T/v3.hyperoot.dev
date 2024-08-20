@@ -20,10 +20,10 @@ const { title, description, ogImage } = Astro.props as BaseLayoutProps;
   </head>
 
   <body>
-    <div id="blob" class="hidden lg:block"></div>
-    <div id="blur" class="hidden lg:block"></div>
+    <div id="blob" class="hidden lg:block" transition:persist></div>
+    <div id="blur" class="hidden lg:block" transition:persist></div>
     <div class="flex justify-center">
-      <main class="flex flex-col max-w-6xl min-h-dvh z-40">
+      <main class="flex flex-col max-w-6xl min-h-dvh z-40 flex-1">
         <slot />
       </main>
     </div>
@@ -41,17 +41,19 @@ const { title, description, ogImage } = Astro.props as BaseLayoutProps;
 </style>
 
 <script is:inline>
-  const blob = document.getElementById("blob");
+  document.addEventListener("astro:page-load", () => {
+    const blob = document.getElementById("blob");
 
-  window.onpointermove = (event) => {
-    const { clientX, clientY } = event;
+    window.onpointermove = (event) => {
+      const { clientX, clientY } = event;
 
-    blob.animate(
-      {
-        left: `${clientX}px`,
-        top: `${clientY}px`,
-      },
-      { duration: 0, fill: "forwards" },
-    );
-  };
+      blob.animate(
+        {
+          left: `${clientX}px`,
+          top: `${clientY}px`,
+        },
+        { duration: 0, fill: "forwards" },
+      );
+    };
+  });
 </script>

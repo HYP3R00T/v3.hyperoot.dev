@@ -11,6 +11,7 @@ export const SITE = {
   title: "Hyperoot",
   ogImage: "og-image.jpg",
   repo: "https://github.com/HYP3R00T/v3.hyperoot.dev",
+  scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
 };
 
 export const LOCALE = {

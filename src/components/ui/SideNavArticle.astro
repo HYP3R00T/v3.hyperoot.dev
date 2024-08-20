@@ -1,0 +1,28 @@
+---
+
+---
+
+<div class="text-white p-4 hidden lg:flex flex-col gap-4">
+  <a class="category-item" href="/article">
+    <div class="category-line w-10 bg-light"></div>
+    <div class="category-link text-light">Articles</div>
+  </a>
+</div>
+
+<style>
+  .category-item {
+    @apply flex flex-row items-center gap-3;
+  }
+  :hover.category-item .category-line {
+    @apply h-px w-20 bg-accent;
+  }
+  :hover.category-item .category-link {
+    @apply text-accent;
+  }
+  .category-item .category-line {
+    @apply h-px;
+  }
+  .category-item .category-link {
+    @apply text-xs uppercase font-semibold tracking-wide;
+  }
+</style>

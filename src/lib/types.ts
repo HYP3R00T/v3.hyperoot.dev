@@ -1,3 +1,5 @@
+import type { CollectionEntry } from "astro:content";
+
 // For HeadSEO.astro
 export interface HeadSEOProps {
   title?: string | undefined;
@@ -42,4 +44,27 @@ export interface ProjectsProps {
 
 export interface ProjCardProps {
   data: ProjectsProps;
+}
+
+// Make similar changes to config.ts in content folder
+export type ArticleData = {
+  author: string;
+  pubDatetime?: Date;
+  modDatetime?: Date | null;
+  title: string;
+  featured: boolean;
+  draft: boolean;
+  category: string;
+  tags: string[];
+  description?: string;
+};
+
+// Define the type for docs collection
+export type ArticleProps = CollectionEntry<"blog"> & {
+  data: ArticleData;
+};
+
+export interface Category {
+  category: string;
+  categoryName: string;
 }
