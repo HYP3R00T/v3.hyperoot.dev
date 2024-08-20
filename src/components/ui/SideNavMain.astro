@@ -74,22 +74,41 @@
     const navLinks = document.querySelectorAll(".nav-link");
     const navLines = document.querySelectorAll(".nav-line");
 
+    // Ensure we have valid elements
+    if (
+      sections.length === 0 ||
+      navLinks.length === 0 ||
+      navLines.length === 0
+    ) {
+      return;
+    }
+
     let index = sections.length;
 
-    while (--index && window.scrollY + 100 < sections[index].offsetTop) {}
+    while (
+      --index &&
+      window.scrollY + 100 < (sections[index] as HTMLElement)?.offsetTop
+    ) {}
 
+    // Ensure index is within bounds
+    if (index < 0 || index >= navLinks.length || index >= navLines.length) {
+      return;
+    }
+
+    // Update navLinks
     navLinks.forEach((link) => link.classList.remove("text-lightest"));
     navLinks[index].classList.add("text-lightest");
     navLinks.forEach((link) => link.classList.add("text-light"));
     navLinks[index].classList.remove("text-light");
 
-    navLines.forEach((link) => link.classList.remove("w-20"));
+    // Update navLines
+    navLines.forEach((line) => line.classList.remove("w-20"));
     navLines[index].classList.add("w-20");
-    navLines.forEach((link) => link.classList.add("w-10"));
+    navLines.forEach((line) => line.classList.add("w-10"));
     navLines[index].classList.remove("w-10");
-    navLines.forEach((link) => link.classList.remove("bg-lightest"));
+    navLines.forEach((line) => line.classList.remove("bg-lightest"));
     navLines[index].classList.add("bg-lightest");
-    navLines.forEach((link) => link.classList.add("bg-light"));
+    navLines.forEach((line) => line.classList.add("bg-light"));
     navLines[index].classList.remove("bg-light");
   });
 </script>

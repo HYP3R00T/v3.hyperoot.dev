@@ -61,9 +61,15 @@ const hasToC = toc.length > 1;
 
       while (
         --index &&
-        window.scrollY + 300 < (sections[index] as HTMLElement).offsetTop
+        window.scrollY + 300 < (sections[index] as HTMLElement)?.offsetTop
       ) {}
 
+      // Ensure index is within bounds
+      if (index < 0 || index >= tocLinks.length || index >= tocLines.length) {
+        return;
+      }
+
+      // Update ToC Links
       tocLinks.forEach((link) => {
         link.classList.remove("text-lightest");
         link.classList.add("text-light");
@@ -71,6 +77,7 @@ const hasToC = toc.length > 1;
       tocLinks[index].classList.add("text-lightest");
       tocLinks[index].classList.remove("text-light");
 
+      // Update ToC Lines
       tocLines.forEach((line) => {
         line.classList.remove("w-10", "bg-lightest");
         line.classList.add("w-5", "bg-light");
@@ -86,9 +93,17 @@ const hasToC = toc.length > 1;
         linkTopPosition + activeTocLink.offsetHeight + 100 >
         tocContainerHeight + tocContainer.scrollTop
       ) {
-        activeTocLink.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        // Scroll the ToC container to ensure the active link is visible
+        tocContainer.scrollTop = Math.min(
+          linkTopPosition +
+            activeTocLink.offsetHeight -
+            tocContainerHeight +
+            100,
+          tocContainer.scrollHeight,
+        );
       } else if (linkTopPosition < tocContainer.scrollTop) {
-        activeTocLink.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        // Scroll the ToC container to ensure the active link is visible
+        tocContainer.scrollTop = Math.max(linkTopPosition, 0);
       }
     });
   });
