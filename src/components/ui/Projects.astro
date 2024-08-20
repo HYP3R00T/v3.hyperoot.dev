@@ -1,0 +1,15 @@
+---
+import { Icon } from "astro-icon/components";
+
+import ProjCard from "@/components/base/ProjCard.astro";
+
+import { projects } from "config";
+---
+
+<section id="projects" class="scroll-my-8 flex flex-col gap-2">
+  {
+    projects.map((data) => {
+      return <ProjCard {data} />;
+    })
+  }
+</section>

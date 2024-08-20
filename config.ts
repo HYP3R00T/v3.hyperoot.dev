@@ -38,25 +38,32 @@ export const projects: ProjectsProps[] = [
     tags: ["Astro", "TailwindCSS", "TypeScript", "JavaScript"],
   },
   {
-    name: "CelestialDocs",
+    name: "Settings Organizer",
     description:
-      "CelestialDocs is a simple and versatile documentation template built with Astro. It provides a clean and minimal interface for creating documentation websites, leveraging the power of Astro and Tailwind CSS for a streamlined user experience.",
-    url: "https://celestialdocs.hyperoot.dev/",
-    tags: ["Astro", "TailwindCSS", "TypeScript", "JavaScript"],
+      "Settings Organizer is a simple yet powerful VSCode extension designed to keep your settings.json file clean and organized. It categorizes settings based on common patterns, ensuring your configuration file remains neat and easy to navigate. No more messy settings.json files—keep your workspace tidy and efficient with just a single command!",
+    url: "https://marketplace.visualstudio.com/items?itemName=hyperoot.settings-organizer",
+    tags: ["VSCode", "Extension", "TypeScript"],
   },
   {
-    name: "CelestialDocs",
+    name: "FollowSphere",
     description:
-      "CelestialDocs is a simple and versatile documentation template built with Astro. It provides a clean and minimal interface for creating documentation websites, leveraging the power of Astro and Tailwind CSS for a streamlined user experience.",
-    url: "https://celestialdocs.hyperoot.dev/",
-    tags: ["Astro", "TailwindCSS", "TypeScript", "JavaScript"],
+      "FollowSphere is a Python package designed to streamline the process of following hashtags across various social media platforms. By allowing users to specify collections of hashtags (e.g., Python, DevOps), this tool helps you stay updated with the latest trends and discussions within your areas of interest.",
+    url: "https://pypi.org/project/followsphere/",
+    tags: ["Python", "PyPI", "Playwright"],
   },
   {
-    name: "CelestialDocs",
+    name: "Cheatsheetify",
     description:
-      "CelestialDocs is a simple and versatile documentation template built with Astro. It provides a clean and minimal interface for creating documentation websites, leveraging the power of Astro and Tailwind CSS for a streamlined user experience.",
-    url: "https://celestialdocs.hyperoot.dev/",
-    tags: ["Astro", "TailwindCSS", "TypeScript", "JavaScript"],
+      "cheatsheetify is a command-line tool that generates PDF versions of cheatsheets for popular command-line tools.",
+    url: "https://cheatsheetify.hyperoot.dev/",
+    tags: ["Python", "PyPI"],
+  },
+  {
+    name: "hypercli",
+    description:
+      "hypercli is a Python package that provides an elegant solution for interacting with command line tools. It offers a menu-based command line interface (CLI) that allows users to navigate through different options and execute functions based on their choices.",
+    url: "https://pypi.org/project/hypercli/",
+    tags: ["Python", "PyPI"],
   },
 ];
 
