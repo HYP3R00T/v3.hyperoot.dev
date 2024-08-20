@@ -1,7 +1,11 @@
-import type { SocialObjects } from "@/lib/types";
+import type {
+  ExperienceProps,
+  ProjectsProps,
+  SocialObjects,
+} from "@/lib/types";
 
 export const SITE = {
-  website: "https://hyperoot.dev", // replace this with your deployed domain
+  website: "https://hyperoot.dev",
   author: "HYP3R00T",
   desc: "",
   title: "Hyperoot",
@@ -14,100 +18,123 @@ export const LOCALE = {
   langTag: ["en-EN"], // BCP 47 Language Tags. Set this empty [] to use the environment default
 } as const;
 
-// Set your social. It will appear in footer. Don't change the `name` value.
-export const Socials: SocialObjects = [
+export const experience: ExperienceProps[] = [
   {
-    name: "Github",
+    job_title: "Project Engineer · Wipro",
+    duration: "2022 — 2024",
+    description:
+      "Served as a QA tester for a prominent client in the US medical insurance industry, specializing in ETL pipeline testing. I developed automated scripts using Python and Boto3 to support integration testing, designed OpenShift pipelines to optimize testing workflows, and maintained and enhanced the internal testing suite.",
+    tags: ["Python", "AWS", "Azure", "Docker", "Linux", "OpenShift"],
+    url: "https://www.wipro.com/",
+  },
+];
+
+export const projects: ProjectsProps[] = [
+  {
+    name: "CelestialDocs",
+    description:
+      "CelestialDocs is a simple and versatile documentation template built with Astro. It provides a clean and minimal interface for creating documentation websites, leveraging the power of Astro and Tailwind CSS for a streamlined user experience.",
+    url: "https://celestialdocs.hyperoot.dev/",
+    tags: ["Astro", "TailwindCSS", "TypeScript", "JavaScript"],
+  },
+  {
+    name: "CelestialDocs",
+    description:
+      "CelestialDocs is a simple and versatile documentation template built with Astro. It provides a clean and minimal interface for creating documentation websites, leveraging the power of Astro and Tailwind CSS for a streamlined user experience.",
+    url: "https://celestialdocs.hyperoot.dev/",
+    tags: ["Astro", "TailwindCSS", "TypeScript", "JavaScript"],
+  },
+  {
+    name: "CelestialDocs",
+    description:
+      "CelestialDocs is a simple and versatile documentation template built with Astro. It provides a clean and minimal interface for creating documentation websites, leveraging the power of Astro and Tailwind CSS for a streamlined user experience.",
+    url: "https://celestialdocs.hyperoot.dev/",
+    tags: ["Astro", "TailwindCSS", "TypeScript", "JavaScript"],
+  },
+  {
+    name: "CelestialDocs",
+    description:
+      "CelestialDocs is a simple and versatile documentation template built with Astro. It provides a clean and minimal interface for creating documentation websites, leveraging the power of Astro and Tailwind CSS for a streamlined user experience.",
+    url: "https://celestialdocs.hyperoot.dev/",
+    tags: ["Astro", "TailwindCSS", "TypeScript", "JavaScript"],
+  },
+];
+
+export const Socials: SocialObjects[] = [
+  {
+    name: "github",
     href: "https://github.com/HYP3R00T/",
     linkTitle: ` ${SITE.title} on Github`,
     active: true,
   },
   {
-    name: "Facebook",
+    name: "facebook",
     href: "https://github.com/HYP3R00T/",
     linkTitle: `${SITE.title} on Facebook`,
     active: false,
   },
   {
-    name: "Instagram",
+    name: "instagram",
     href: "https://github.com/HYP3R00T/",
     linkTitle: `${SITE.title} on Instagram`,
     active: false,
   },
   {
-    name: "LinkedIn",
+    name: "linkedin",
     href: "https://github.com/HYP3R00T/",
     linkTitle: `${SITE.title} on LinkedIn`,
     active: false,
   },
   {
-    name: "Mail",
+    name: "mail",
     href: "mailto:rajesh@hyperoot.dev",
     linkTitle: `Send an email to ${SITE.title}`,
     active: true,
   },
   {
-    name: "Twitter",
-    href: "https://github.com/HYP3R00T/",
+    name: "x",
+    href: "https://x.com/HYP3R00T",
     linkTitle: `${SITE.title} on Twitter`,
-    active: false,
+    active: true,
   },
   {
-    name: "Twitch",
+    name: "twitch",
     href: "https://github.com/HYP3R00T/",
     linkTitle: `${SITE.title} on Twitch`,
     active: false,
   },
   {
-    name: "YouTube",
+    name: "youtube",
     href: "https://github.com/HYP3R00T/",
     linkTitle: `${SITE.title} on YouTube`,
     active: false,
   },
   {
-    name: "WhatsApp",
-    href: "https://github.com/HYP3R00T/",
-    linkTitle: `${SITE.title} on WhatsApp`,
-    active: false,
-  },
-  {
-    name: "Snapchat",
-    href: "https://github.com/HYP3R00T/",
-    linkTitle: `${SITE.title} on Snapchat`,
-    active: false,
-  },
-  {
-    name: "Pinterest",
-    href: "https://github.com/HYP3R00T/",
-    linkTitle: `${SITE.title} on Pinterest`,
-    active: false,
-  },
-  {
-    name: "Discord",
+    name: "discord",
     href: "https://discord.gg/tWZRBhaPhd",
     linkTitle: `${SITE.title} on Discord`,
     active: false,
   },
   {
-    name: "GitLab",
+    name: "gitlab",
     href: "https://github.com/HYP3R00T/",
     linkTitle: `${SITE.title} on GitLab`,
     active: false,
   },
   {
-    name: "Reddit",
+    name: "reddit",
     href: "https://github.com/HYP3R00T/",
     linkTitle: `${SITE.title} on Reddit`,
     active: false,
   },
   {
-    name: "Telegram",
+    name: "telegram",
     href: "https://github.com/HYP3R00T/",
     linkTitle: `${SITE.title} on Telegram`,
     active: false,
   },
   {
-    name: "Mastodon",
+    name: "mastodon",
     href: "https://mastodon.social/@hyp3r00t",
     linkTitle: `${SITE.title} on Mastodon`,
     active: true,
