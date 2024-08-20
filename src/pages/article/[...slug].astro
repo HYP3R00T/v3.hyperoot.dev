@@ -1,30 +1,38 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
+import type { ArticleData, ArticleProps, Heading } from "@/lib/types";
 
 import BlogPost from "@/layouts/BlogPost.astro";
+import type { MarkdownHeading } from "astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  return posts.map((post: { slug: any }) => ({
-    params: { slug: post.slug },
-    props: post,
-  }));
-}
-type Props = CollectionEntry<"blog">;
+  const posts: ArticleProps[] = await getCollection("blog");
+  const headings: MarkdownHeading[][] = await Promise.all(
+    posts.map((entry) =>
+      entry.render().then((data: { headings: any }) => data.headings),
+    ),
+  );
 
-const post = Astro.props;
-const { Content } = await post.render();
+  const posts_ = posts.map((entry: { slug: any }, index: number) => {
+    return {
+      params: { slug: entry.slug },
+      props: { entry, headings: headings[index] },
+    };
+  });
+  return posts_;
+}
+
+const { entry, headings } = Astro.props as {
+  entry: CollectionEntry<"blog">;
+  headings: Heading[];
+};
+
+const { Content } = await entry.render();
+const idAndData = { headings, ...entry.data };
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body>
-    <BlogPost {...post.data}>
-      <Content />
-    </BlogPost>
-  </body>
-</html>
+<div class="w-full">
+  <BlogPost {...idAndData}>
+    <Content />
+  </BlogPost>
+</div>

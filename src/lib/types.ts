@@ -1,3 +1,4 @@
+import type { MarkdownHeading } from "astro";
 import type { CollectionEntry } from "astro:content";
 
 // For HeadSEO.astro
@@ -67,4 +68,30 @@ export type ArticleProps = CollectionEntry<"blog"> & {
 export interface Category {
   category: string;
   categoryName: string;
+}
+
+// For TableofContents.astro
+export interface HeadingProps {
+  headings: {
+    depth: number;
+    text: string;
+    slug: string;
+  }[];
+}
+
+// Define heading hierarchy so that we can generate ToC
+export interface HeadingHierarchy extends MarkdownHeading {
+  subheadings: HeadingHierarchy[];
+}
+
+// For [...slug].astro
+export interface Heading {
+  text: string;
+  depth: number;
+  slug: string;
+}
+
+// For DocsLayout.astro
+export interface BlogPostLayoutProps extends ArticleData {
+  headings: Heading[];
 }

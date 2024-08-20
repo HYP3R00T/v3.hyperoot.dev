@@ -1,6 +1,7 @@
 import { SITE } from "config";
 import type { CollectionEntry } from "astro:content";
-import type { ArticleProps, Category } from "@/lib/types";
+import type { ArticleProps, Category, HeadingHierarchy } from "@/lib/types";
+import type { MarkdownHeading } from "astro";
 
 // Helper function to capitalize the first letter of a string
 export const capitalizeFirstLetter = (str: string) => {
@@ -30,3 +31,26 @@ export const getUniqueCategories = (posts: ArticleProps[]) => {
     );
   return categories;
 };
+
+// create headings for ToC
+export function createHeadingHierarchy(headings: MarkdownHeading[]) {
+  const topLevelHeadings: HeadingHierarchy[] = [];
+
+  headings.forEach((heading) => {
+    const h = {
+      ...heading,
+      subheadings: [],
+    };
+
+    if (h.depth >= 2) {
+      topLevelHeadings.push(h);
+    } else {
+      let parent = topLevelHeadings[topLevelHeadings.length - 1];
+      if (parent) {
+        parent.subheadings.push(h);
+      }
+    }
+  });
+
+  return topLevelHeadings;
+}

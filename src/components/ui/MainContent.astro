@@ -1,0 +1,24 @@
+---
+import type { BlogPostLayoutProps } from "@/lib/types";
+import { capitalizeFirstLetter } from "@/lib/utils";
+
+const {
+  author,
+  pubDatetime,
+  modDatetime,
+  title,
+  featured,
+  draft,
+  category,
+  tags,
+  description,
+  headings,
+} = Astro.props as BlogPostLayoutProps;
+---
+
+<div class="pt-4 w-full flex flex-col">
+  <h1 class="pb-2 italic">{capitalizeFirstLetter(title)}</h1>
+  <div class="prose pt-4">
+    <slot />
+  </div>
+</div>

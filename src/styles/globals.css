@@ -19,20 +19,18 @@
     --blurred: #2d374859;
     --blob: #63b3ed9c;
 
-    /* --darkest: #020617;
-    --darker: #0f172a;
-    --dark: #1e293b;
-
-    --light: #8892b0;
-    --lighter: #a8b2d1;
-    --lightest: #ccd6f6;
-
-    --white: #e6f1ff;
-    --accent: #42ffd9cc;
-
-    --accent-transparent: #42ffd918;
-    --blurred: #e6f1ff09;
-    --blob: #0098db; */
+    /* ED64A6 */
+    --astro-code-color-background: #2d374859;
+    --astro-code-color-text: #E2E8F0;
+    --astro-code-token-constant: #B794F4;
+    --astro-code-token-string: #64ed76;
+    --astro-code-token-comment: #718096;
+    --astro-code-token-keyword: #B794F4;
+    --astro-code-token-parameter: #FC8181;
+    --astro-code-token-function: #63b3ed;
+    --astro-code-token-string-expression: #68D391;
+    --astro-code-token-punctuation: #FC8181;
+    --astro-code-token-link: #68D391;
   }
 }
 
@@ -88,7 +86,7 @@ a {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  @apply bg-light border-darker;
+  @apply bg-light border-darker rounded;
 }
 
 /* Handle on hover */
@@ -109,4 +107,24 @@ a {
     linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
       transparent 1%) center / var(--dot-space) var(--dot-space),
     var(--dot-color);
+}
+
+/* ===== codeblock ===== */
+
+.astro-code {
+  @apply p-4 mt-2 hover:bg-accenttransparent hover:text-lightest;
+}
+
+code {
+  @apply bg-transparent
+}
+
+/* ===== prose ===== */
+
+.prose iframe {
+  @apply w-full aspect-video
+}
+
+.prose code:not(.astro-code code) {
+  @apply bg-darkest text-lighter py-1 px-2 rounded;
 }
