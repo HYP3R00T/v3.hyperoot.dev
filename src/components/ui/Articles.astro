@@ -11,12 +11,35 @@ posts.sort((a, b) => {
 });
 ---
 
-<section>
+<section class="hidden lg:flex flex-col">
   {
     posts.map((post) => (
       <a
         href={`/article/${post.slug}/`}
         class="article p-4 rounded-lg hidden lg:flex lg:flex-col flex-1 gap-4 text-light hover:shadow hover:bg-blurred"
+      >
+        <h4 class="article-title m-0 p-0 -mt-1 font-normal tracking-normal text-lightest">
+          {post.data.title}
+        </h4>
+        <p class="article-description text-pretty text-base font-normal">
+          {post.data.description}
+        </p>
+        <div class="flex gap-2 py-2 font-mono flex-wrap">
+          {post.data.tags?.map((tag: unknown) => {
+            return <Button>{tag}</Button>;
+          })}
+        </div>
+      </a>
+    ))
+  }
+</section>
+
+<section class="lg:hidden flex flex-col gap-4">
+  {
+    posts.map((post) => (
+      <a
+        href={`/article/${post.slug}/`}
+        class="article lg:hidden flex p-4 rounded-lg flex-col text-light bg-blurred"
       >
         <h4 class="article-title m-0 p-0 -mt-1 font-normal tracking-normal text-lightest">
           {post.data.title}

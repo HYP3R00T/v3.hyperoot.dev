@@ -14,6 +14,18 @@ const { headings } = Astro.props;
   </div>
 </div>
 
+<div
+  class="scrollbar-sm lg:hidden flex flex-row w-5/6 gap-6 text-white px-6 py-2 my-5 items-center justify-center border-blurred border-2"
+>
+  <a class="text-base" href="/">
+    <div class="text-light">Home</div>
+  </a>
+
+  <a class="text-base" href="/article">
+    <div class="text-light">Articles</div>
+  </a>
+</div>
+
 <style>
   .category-item {
     @apply flex flex-row items-center gap-3;
@@ -38,5 +50,11 @@ const { headings } = Astro.props;
   }
   .scrollbar::-webkit-scrollbar-track {
     @apply rounded;
+  }
+  .scrollbar-sm::-webkit-scrollbar {
+    @apply h-[2px];
+  }
+  .scrollbar-sm::-webkit-scrollbar-track {
+    @apply rounded bg-blurred;
   }
 </style>

@@ -1,6 +1,6 @@
 ---
 title: 'First post'
-description: 'Lorem ipsum dolor sit amet'
+description: 'Exception handling is a crucial aspect of writing robust and error-free code in any programming language, including Python.'
 pubDatetime: 2024-02-15
 tags:
 - python

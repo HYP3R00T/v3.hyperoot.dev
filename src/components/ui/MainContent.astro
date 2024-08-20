@@ -16,7 +16,7 @@ const {
 } = Astro.props as BlogPostLayoutProps;
 ---
 
-<div class="pt-4 w-full flex flex-col">
+<div class="pt-4 w-full flex flex-col flex-1">
   <h1 class="pb-2 italic">{capitalizeFirstLetter(title)}</h1>
   <div class="prose pt-4">
     <slot />

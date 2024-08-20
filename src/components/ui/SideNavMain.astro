@@ -24,27 +24,25 @@
   </a>
 </div>
 
-<!-- <div class="text-white p-4 flex lg:hidden flex-col gap-4">
-  <a class="nav-item" href="#about">
-    <div class="nav-line w-20 bg-lightest"></div>
-    <div class="nav-link text-lightest">About</div>
+<div
+  class="scrollbar lg:hidden flex flex-row w-5/6 gap-6 text-white px-6 py-2 my-5 items-center align-middle overflow-x-scroll border-blurred border-2 border-b-0"
+>
+  <a class="text-base" href="/#about">
+    <div class="text-light">About</div>
   </a>
 
-  <a class="nav-item" href="#experience">
-    <div class="nav-line w-10 bg-light"></div>
-    <div class="nav-link text-light">Experience</div>
+  <a class="text-base" href="/#experience">
+    <div class="text-light">Experience</div>
   </a>
 
-  <a class="nav-item" href="#projects">
-    <div class="nav-line w-10 bg-light"></div>
-    <div class="nav-link text-light">Projects</div>
+  <a class="text-base" href="/#projects">
+    <div class="text-light">Projects</div>
   </a>
 
-  <a class="nav-item" href="/posts">
-    <div class="nav-line w-10 bg-light"></div>
-    <div class="nav-link text-light">Posts</div>
+  <a class="text-base" href="/article">
+    <div class="text-light">Articles</div>
   </a>
-</div> -->
+</div>
 
 <style>
   .nav-item {
@@ -61,6 +59,12 @@
   }
   .nav-item .nav-link {
     @apply text-xs uppercase font-semibold tracking-wide;
+  }
+  .scrollbar::-webkit-scrollbar {
+    @apply h-[2px];
+  }
+  .scrollbar::-webkit-scrollbar-track {
+    @apply rounded bg-blurred;
   }
 </style>
 
