@@ -1,21 +1,18 @@
 ---
-import Button from "@/components/base/Button.astro";
-
-// import { ChevronUp } from "lucide-react";
-
-// To pass the tailwindcss classes to the astro component
-const { class: className } = Astro.props;
+import { Icon } from "astro-icon/components";
 ---
 
-<Button
-  id="back-to-top"
-  class:list={["opacity-0", className]}
-  size="icon"
-  variant="outline"
->
-  Back
-  <!-- <ChevronUp /> -->
-</Button>
+<div class="sticky bottom-8 flex justify-end py-4">
+  <div
+    onclick="scrollToTop()"
+    id="back-to-top"
+    class="no-underline opacity-0 bg-lighter text-darkest aspect-square rounded p-2 h-auto w-auto flex"
+  >
+    <button class="">
+      <Icon name="arrow-up" class="aspect-square w-[1.4rem] h-[1.4rem]" />
+    </button>
+  </div>
+</div>
 
 <script is:inline>
   function backToTop() {

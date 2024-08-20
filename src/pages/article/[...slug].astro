@@ -1,9 +1,10 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
-import type { ArticleProps, Heading } from "@/lib/types";
+import type { MarkdownHeading } from "astro";
 
 import BlogPost from "@/layouts/BlogPost.astro";
-import type { MarkdownHeading } from "astro";
+
+import type { ArticleProps, Heading } from "@/lib/types";
 
 export async function getStaticPaths() {
   const posts: ArticleProps[] = await getCollection("blog");

@@ -1,7 +1,9 @@
-import { SITE } from "config";
 import type { CollectionEntry } from "astro:content";
-import type { ArticleProps, Category, HeadingHierarchy } from "@/lib/types";
 import type { MarkdownHeading } from "astro";
+
+import type { ArticleProps, Category, HeadingHierarchy } from "@/lib/types";
+
+import { SITE } from "config";
 
 // Helper function to capitalize the first letter of a string
 export const capitalizeFirstLetter = (str: string) => {

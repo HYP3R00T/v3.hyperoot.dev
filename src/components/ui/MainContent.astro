@@ -1,4 +1,6 @@
 ---
+import BacktoTop from "@/components/base/BacktoTop.astro";
+
 import type { BlogPostLayoutProps } from "@/lib/types";
 import { capitalizeFirstLetter } from "@/lib/utils";
 
@@ -20,5 +22,6 @@ const {
   <h1 class="pb-2 italic">{capitalizeFirstLetter(title)}</h1>
   <div class="prose pt-4">
     <slot />
+    <BacktoTop />
   </div>
 </div>

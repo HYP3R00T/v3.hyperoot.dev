@@ -1,7 +1,9 @@
 ---
-import type { ArticleProps } from "@/lib/types";
 import { getCollection } from "astro:content";
-import Button from "../base/Button.astro";
+
+import Button from "@/components/base/Button.astro";
+
+import type { ArticleProps } from "@/lib/types";
 
 const posts: ArticleProps[] = await getCollection("blog").then(
   (p: ArticleProps[]) => p.filter(({ data }) => !data.draft),
