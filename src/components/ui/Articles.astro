@@ -3,7 +3,9 @@ import type { ArticleProps } from "@/lib/types";
 import { getCollection } from "astro:content";
 import Button from "../base/Button.astro";
 
-const posts: ArticleProps[] = await getCollection("blog");
+const posts: ArticleProps[] = await getCollection("blog").then(
+  (p: ArticleProps[]) => p.filter(({ data }) => !data.draft && !data.ogImage),
+);
 posts.sort((a, b) => {
   const aDate = new Date(a.data.modDatetime ?? a.data.pubDatetime).valueOf();
   const bDate = new Date(b.data.modDatetime ?? b.data.pubDatetime).valueOf();
@@ -16,7 +18,7 @@ posts.sort((a, b) => {
     posts.map((post) => (
       <a
         href={`/article/${post.slug}/`}
-        class="article p-4 rounded-lg hidden lg:flex lg:flex-col flex-1 gap-4 text-light hover:shadow hover:bg-blurred"
+        class="article p-4 rounded-lg hidden lg:flex lg:flex-col flex-1 gap-1 text-light hover:shadow hover:bg-blurred"
       >
         <h4 class="article-title m-0 p-0 -mt-1 font-normal tracking-normal text-lightest">
           {post.data.title}
