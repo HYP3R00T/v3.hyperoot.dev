@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 import Button from "../base/Button.astro";
 
 const posts: ArticleProps[] = await getCollection("blog").then(
-  (p: ArticleProps[]) => p.filter(({ data }) => !data.draft && !data.ogImage),
+  (p: ArticleProps[]) => p.filter(({ data }) => !data.draft),
 );
 posts.sort((a, b) => {
   const aDate = new Date(a.data.modDatetime ?? a.data.pubDatetime).valueOf();
