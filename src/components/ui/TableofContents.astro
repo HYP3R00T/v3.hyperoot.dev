@@ -47,7 +47,7 @@ const hasToC = toc.length > 1;
     const proseContainer = document.querySelector(".prose");
     if (!proseContainer) return;
 
-    const sections = Array.from(proseContainer.querySelectorAll("h2, h3"));
+    const headings = Array.from(proseContainer.querySelectorAll("h2, h3"));
     const tocLinks = document.querySelectorAll(".toc-item");
 
     const headerOffset = 80; // Adjust this value based on your fixed header height
@@ -75,11 +75,11 @@ const hasToC = toc.length > 1;
     });
 
     document.addEventListener("scroll", () => {
-      let index = sections.length;
+      let index = headings.length;
 
       while (
         --index &&
-        window.scrollY + 300 < (sections[index] as HTMLElement)?.offsetTop
+        window.scrollY + 300 < (headings[index] as HTMLElement)?.offsetTop
       ) {}
 
       // Ensure index is within bounds
