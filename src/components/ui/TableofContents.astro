@@ -47,14 +47,32 @@ const hasToC = toc.length > 1;
     const proseContainer = document.querySelector(".prose");
     if (!proseContainer) return;
 
-    const sections = proseContainer.querySelectorAll("h2, h3");
-    const tocLinks = document.querySelectorAll(".toc-link");
-    const tocLines = document.querySelectorAll(".toc-line");
-    const tocContainer = document.querySelector(
-      ".toc-container",
-    ) as HTMLElement | null;
+    const sections = Array.from(proseContainer.querySelectorAll("h2, h3"));
+    const tocLinks = document.querySelectorAll(".toc-item");
 
-    if (!tocContainer) return;
+    const headerOffset = 80; // Adjust this value based on your fixed header height
+
+    tocLinks.forEach((link, index) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const href = link.getAttribute("href");
+        if (!href) return; // Check if href is null
+
+        const targetId = href.substring(1); // Safe to use substring now
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          const elementPosition = targetElement.offsetTop;
+          const offsetPosition = elementPosition - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      });
+    });
 
     document.addEventListener("scroll", () => {
       let index = sections.length;
@@ -65,46 +83,31 @@ const hasToC = toc.length > 1;
       ) {}
 
       // Ensure index is within bounds
-      if (index < 0 || index >= tocLinks.length || index >= tocLines.length) {
+      if (index < 0 || index >= tocLinks.length) {
         return;
       }
 
       // Update ToC Links
       tocLinks.forEach((link) => {
-        link.classList.remove("text-lightest");
-        link.classList.add("text-light");
+        link.querySelector(".toc-link")?.classList.remove("text-lightest");
+        link.querySelector(".toc-link")?.classList.add("text-light");
       });
-      tocLinks[index].classList.add("text-lightest");
-      tocLinks[index].classList.remove("text-light");
+
+      tocLinks[index]
+        .querySelector(".toc-link")
+        ?.classList.add("text-lightest");
+      tocLinks[index]
+        .querySelector(".toc-link")
+        ?.classList.remove("text-light");
 
       // Update ToC Lines
+      const tocLines = document.querySelectorAll(".toc-line");
       tocLines.forEach((line) => {
         line.classList.remove("w-10", "bg-lightest");
         line.classList.add("w-5", "bg-light");
       });
       tocLines[index].classList.add("w-10", "bg-lightest");
       tocLines[index].classList.remove("w-5", "bg-light");
-
-      const activeTocLink = tocLinks[index] as HTMLElement;
-      const tocContainerHeight = tocContainer.offsetHeight;
-      const linkTopPosition = activeTocLink.offsetTop;
-
-      if (
-        linkTopPosition + activeTocLink.offsetHeight + 100 >
-        tocContainerHeight + tocContainer.scrollTop
-      ) {
-        // Scroll the ToC container to ensure the active link is visible
-        tocContainer.scrollTop = Math.min(
-          linkTopPosition +
-            activeTocLink.offsetHeight -
-            tocContainerHeight +
-            100,
-          tocContainer.scrollHeight,
-        );
-      } else if (linkTopPosition < tocContainer.scrollTop) {
-        // Scroll the ToC container to ensure the active link is visible
-        tocContainer.scrollTop = Math.max(linkTopPosition, 0);
-      }
     });
   });
 </script>
