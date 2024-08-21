@@ -128,3 +128,7 @@ code {
 .prose code:not(.astro-code code) {
   @apply bg-darkest text-lighter py-1 px-2 rounded;
 }
+
+.prose p {
+  @apply text-lighter
+}
