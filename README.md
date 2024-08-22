@@ -1,4 +1,4 @@
-<h1 align="center">CelestialDocs</h1>
+<h1 align="center"><a href="https://hyperoot.dev/">hyperoot.dev</a></h1>
 
 Welcome to my personal portfolio website! This site showcases my projects, skills, and blog posts. 
 ## Technologies Used
