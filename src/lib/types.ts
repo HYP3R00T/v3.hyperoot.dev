@@ -40,7 +40,7 @@ export interface ProjectsProps {
   name: string;
   description: string;
   tags?: string[];
-  url: string;
+  homepage_url: string;
 }
 
 export interface ProjCardProps {

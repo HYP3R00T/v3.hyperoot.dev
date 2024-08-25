@@ -7,7 +7,7 @@ const { data } = Astro.props as ProjCardProps;
 ---
 
 <a
-  href={data.url}
+  href={data.homepage_url}
   target="_blank"
   class="project p-8 rounded-lg hidden lg:flex lg:flex-col flex-1 gap-4
   text-light hover:shadow hover:bg-blurred"
@@ -30,7 +30,7 @@ const { data } = Astro.props as ProjCardProps;
 </a>
 
 <a
-  href={data.url}
+  href={data.homepage_url}
   target="_blank"
   class="project p-4 rounded-lg flex flex-col flex-1 text-light bg-blurred lg:hidden mx-4"
 >
