@@ -1,0 +1,21 @@
+{
+	"Post template": {
+		"prefix": "post",
+		"body": [
+			"---",
+			"author: rajesh",
+			"pubDatetime: $1 #2024-04-09T12:00:00-05:30",
+			"# modDatetime: ",
+			"title: $2",
+			"# featured: ''",
+			"draft: true",
+			"#category: ",
+			"#tags:",
+			"#- tag1",
+			"#description: ",
+			"#heroImage: ",
+			"---",
+		],
+		"description": "Post template"
+	}
+}

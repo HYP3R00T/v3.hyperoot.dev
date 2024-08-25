@@ -126,7 +126,7 @@ code {
 }
 
 .prose iframe {
-  @apply w-full aspect-video
+  @apply w-full aspect-video h-full
 }
 
 .prose code:not(.astro-code code) {
