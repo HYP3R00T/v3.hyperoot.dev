@@ -1,6 +1,7 @@
 <h1 align="center"><a href="https://hyperoot.dev/">hyperoot.dev</a></h1>
 
-Welcome to my personal portfolio website! This site showcases my projects, skills, and blog posts. 
+Welcome to my personal portfolio website! This site showcases my projects, skills, and blog posts.
+
 ## Technologies Used
 
 - **Astro**: The framework used to build the website.

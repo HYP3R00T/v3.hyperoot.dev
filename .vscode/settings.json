@@ -3,7 +3,10 @@
         "MD033": {
             "allowed_elements": [
                 "iframe",
-                "a"
+                "a",
+                "h1",
+                "p",
+                "img",
             ]
         }
     }
