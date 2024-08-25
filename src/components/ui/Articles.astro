@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 
+import FormattedDate from "@/components/core/FormattedDate.astro";
 import Button from "@/components/base/Button.astro";
 
 import type { ArticleProps } from "@/lib/types";
@@ -25,6 +26,14 @@ posts.sort((a, b) => {
         <h4 class="article-title m-0 p-0 -mt-1 font-normal tracking-normal text-lightest">
           {post.data.title}
         </h4>
+        <div class="text-xs italic text-light font-light">
+          <FormattedDate date={post.data.pubDatetime} />
+          {post.data.modDatetime && (
+            <div class="last-updated-on">
+              Last updated on <FormattedDate date={post.data.modDatetime} />
+            </div>
+          )}
+        </div>
         <p class="article-description text-pretty text-base font-normal">
           {post.data.description}
         </p>

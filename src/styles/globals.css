@@ -121,6 +121,10 @@ code {
 
 /* ===== prose ===== */
 
+.prose * {
+  @apply my-4 first:my-0
+}
+
 .prose iframe {
   @apply w-full aspect-video
 }

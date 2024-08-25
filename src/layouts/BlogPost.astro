@@ -17,6 +17,7 @@ const {
   category,
   tags,
   description,
+  heroImage,
   headings,
 } = Astro.props as BlogPostLayoutProps;
 ---
@@ -41,6 +42,7 @@ const {
         category={category}
         tags={tags}
         description={description}
+        heroImage={heroImage}
         headings={headings}
       >
         <slot />

@@ -58,6 +58,7 @@ export type ArticleData = {
   category: string;
   tags: string[];
   description?: string;
+  heroImage?: string;
 };
 
 // Define the type for docs collection
