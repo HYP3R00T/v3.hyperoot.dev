@@ -7,6 +7,7 @@ import Intro from "@/components/ui/Intro.astro";
 import Social from "@/components/ui/Social.astro";
 
 import error404 from "@/assets/404_error.png";
+import SideNavMain from "@/components/ui/SideNavMain.astro";
 ---
 
 <BaseLayout>
@@ -15,6 +16,7 @@ import error404 from "@/assets/404_error.png";
       class="py-6 lg:py-20 px-4 lg:px-12 lg:w-2/5 lg:h-screen lg:sticky lg:top-0 flex flex-col lg:justify-between items-center lg:items-start"
     >
       <Intro />
+      <SideNavMain />
       <Social />
     </div>
     <div
@@ -24,7 +26,7 @@ import error404 from "@/assets/404_error.png";
         <Image
           src={error404}
           alt="A description of my image."
-          class="h-[50dvh]"
+          class="h-[50dvh] w-auto"
         />
       </div>
     </div>

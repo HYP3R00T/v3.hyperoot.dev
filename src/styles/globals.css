@@ -142,3 +142,11 @@ code {
 .prose p {
   @apply text-lighter;
 }
+
+.prose a {
+  @apply text-accent font-normal text-base;
+}
+
+.prose li {
+  @apply text-lighter list-disc list-inside;
+}
