@@ -127,6 +127,10 @@ code {
 
 /* ===== prose ===== */
 
+.prose {
+  @apply flex flex-col gap-2;
+}
+
 .prose * {
   @apply my-4 first:my-0;
 }
